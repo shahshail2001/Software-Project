@@ -9,7 +9,7 @@ from django.template.context_processors import csrf
 def login(request):
     c = {}
     c.update(csrf(request))
-    return render('login.html', c)
+    return render(request, 'login.html', c)
 
 
 def auth_view(request):
