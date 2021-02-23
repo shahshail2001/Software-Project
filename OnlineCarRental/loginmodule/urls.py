@@ -4,9 +4,9 @@ from django.contrib.auth import views as auth_views
 from django.conf.urls import url
 
 urlpatterns = [
-    url('', login),
-    url(r'^auth/$', auth_view),
-    url(r'^logout/$', logout),
-    url(r'^loggedin/$', loggedin),
-    url(r'^invalidlogin/$', invalidlogin),
+    path('', login),
+    path('/auth/', auth_view),
+    path('/logout/', logout),
+    path('/loggedin/', loggedin),
+    path('/invalidlogin/', invalidlogin),
 ]

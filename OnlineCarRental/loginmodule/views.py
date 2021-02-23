@@ -1,11 +1,10 @@
-from django.shortcuts import render
+from django.shortcuts import render, redirect
 from django.views.generic import TemplateView
-from django.http import HttpResponseRedirect
+from django.http import HttpResponseRedirect, HttpResponse
 from django.contrib import auth
 from django.template.context_processors import csrf
 
 
-# Create your views here.
 def login(request):
     c = {}
     c.update(csrf(request))
@@ -19,19 +18,19 @@ def auth_view(request):
 
     if user is not None:
         auth.login(request, user)
-        return HttpResponseRedirect('/loginmodule/loggedin')
+        return redirect('http://localhost:8000/loginmodule/loggedin')
     else:
-        return HttpResponseRedirect('/loginmodule/invalidlogin/')
+        return redirect('http://localhost:8000/loginmodule/invalidlogin/')
 
 
 def loggedin(request):
-    return render('loggedin.html', {"full_name": request.user.username})
+    return render(request, 'loggedin.html', {"full_name": request.user.username})
 
 
 def invalidlogin(request):
-    return render('invalidlogin.html')
+    return render(request, 'invalidlogin.html')
 
 
 def logout(request):
     auth.logout(request)
-    return render('logout.html')
+    return render(request, 'logout.html')

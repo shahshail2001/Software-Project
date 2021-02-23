@@ -1,0 +1,38 @@
+{% extends 'base.html' %}
+{% block content %}
+{% if form.errors %}
+<p class="error"> Invalid CAR info </p>
+
+{% endif %}
+<form action="/employee_dashboard/addcarinfo/" method="post">{% csrf_token %}
+    <label for="carcompany">Car Name:</label>
+    <input type="text" name="carcompany" value="" id="carcompany">
+
+    <label for="carclass">Car class:</label>
+    <input type="text" name="carclass" value="" id="carclass">
+
+    <label for="price">Price:</label>
+    <input type="number" name="price" value="" id="price">
+
+    <label for="cnumber">Car number:</label>
+    <input type="text" name="cnumber" value="" id="cnumber">
+
+
+    <label for="fuel">Car fuel:</label>
+    <input type="text" name="fuel" value="" id="fuel">
+
+    <label for="description">Car Description:</label>
+    <input type="text" name="description" value="" id="description">
+
+    <label>Car availability:</label>
+
+    <label for="availability1">YES</label>
+    <input type="radio" name="availability" value="True" id="availability1">
+
+    <label for="availability2">NO:</label>
+    <input type="radio" name="availability" value="False" id="availability2">
+
+    <input type="submit" value="Submit">
+</form>
+
+{% endblock %}
