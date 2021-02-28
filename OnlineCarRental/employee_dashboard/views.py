@@ -4,6 +4,7 @@ from django.http import HttpResponseRedirect, HttpResponse
 from django.views import generic
 from django.template.context_processors import csrf
 from employee_dashboard.models import Car
+from employee_login.models import Employee
 
 
 # Create your views here.
@@ -13,8 +14,13 @@ def getcarinfo(request):
     return render(request, 'addcarinfo.html', c)
 
 
+def deleteinfo(request):
+    c = {}
+    c.update(csrf(request))
+    return render(request, 'deleterecord.html')
+
+
 def addcarinfo(request):
-    carid = request.POST.get('cid', '0')
     carname = request.POST.get('carcompany', '')
     carclasstype = request.POST.get('carclass', '')
     priceperkm = request.POST.get('price', '0')
@@ -22,7 +28,7 @@ def addcarinfo(request):
     fueltype = request.POST.get('fuel', '')
     cardescription = request.POST.get('description', '')
     caravailability = request.POST.get('availability', 'True')
-    s = Car(car_id=carid, car_company=carname, car_class_type=carclasstype, price_per_km=priceperkm,
+    s = Car(car_id=None, car_company=carname, car_class_type=carclasstype, price_per_km=priceperkm,
             car_number=carnumber,
             fuel_type=fueltype, car_description=cardescription, car_availability=caravailability)
     s.save()
@@ -31,6 +37,26 @@ def addcarinfo(request):
 
 def addsuccess(request):
     return render(request, 'addrecord.html')
+
+
+def getcars(request):
+    cars = Car.objects.all()
+    return render(request, 'viewcars.html', {'cars': cars})
+
+
+def deleteunsuccessful(request):
+    return render(request, 'notfound.html')
+
+
+def deletecarinfo(request):
+    carid = request.POST.get('carid', '')
+    car = Car.objects.filter(car_id=carid)
+    if not car:
+        return HttpResponseRedirect('/employee_dashboard/deleteunsuccessful')
+    else:
+        for c in car:
+            c.delete()
+        return render(request, 'deletecarrecord.html')
 
 
 class CarListView(generic.ListView):

@@ -1,0 +1,14 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Employee Info</title>
+</head>
+<body>
+<p>The employees in the Company are:</p><br>
+    {% for employee in employees %}
+    <li>Employee id: {{ employee.employee_id }}</li><br>
+    <li>Employee username: {{ employee.employee_username }}</li>
+    {% endfor %}
+</body>
+</html>

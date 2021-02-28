@@ -3,7 +3,7 @@ from django.db import models
 
 # Create your models here.
 class Car(models.Model):
-    car_id = models.IntegerField(primary_key=True)
+    car_id = models.AutoField(primary_key=True)
     car_company = models.CharField(max_length=25)
     car_class_type = models.CharField(max_length=20)
     price_per_km = models.IntegerField()

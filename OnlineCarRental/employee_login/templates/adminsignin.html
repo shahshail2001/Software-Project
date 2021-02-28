@@ -1,0 +1,19 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>ADMIN SIGN IN</title>
+</head>
+<body>
+<h1>Welcome Admin</h1>
+<form action="/employee_login/adminsignup/" method="post">{% csrf_token %}
+    <label for="username">Username:</label>
+    <input type="text" name="username" value="" id="username">
+    <br>
+    <label for="password">Password:</label>
+    <input type="password" name="password" value="" id="password">
+    <br>
+    <input type="submit" value="Submit">
+</form>
+</body>
+</html>

@@ -6,5 +6,9 @@ urlpatterns = [
     url('addcarinfo/', views.addcarinfo),
     url('getcarinfo/', views.getcarinfo),
     url('addsuccess/', views.addsuccess),
-    url('car/', views.CarListView.as_view(), name='car')
+    url('car/', views.CarListView.as_view(), name='car'),
+    url('getcars/', views.getcars),
+    url('deleteinfo/', views.deleteinfo),
+    url('deletecarinfo/', views.deletecarinfo),
+    url('deleteunsuccessful/', views.deleteunsuccessful),
 ]

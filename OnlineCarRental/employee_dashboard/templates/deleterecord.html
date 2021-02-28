@@ -1,0 +1,15 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>DELETE CAR RECORD</title>
+</head>
+<body>
+<form action="/employee_dashboard/deletecarinfo/" method="post">{% csrf_token %}
+    <label for="carid">Enter Car Id:</label>
+    <input type="number" name="carid" value="" id="carid">
+
+    <input type="submit" value="Submit">
+</form>
+</body>
+</html>

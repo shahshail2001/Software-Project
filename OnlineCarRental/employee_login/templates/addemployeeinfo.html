@@ -1,0 +1,51 @@
+{% extends 'base.html' %}
+{% block content %}
+{% if form.errors %}
+<p class="error"> Invalid Employee info </p>
+
+{% endif %}
+<form action="/employee_login/addemployeeinfo/" method="post">{% csrf_token %}
+    <label for="employeeusername">Username:</label>
+    <input type="text" name="employeeusername" value="" id="employeeusername">
+    <br>
+    <label for="employeepassword">Password:</label>
+    <input type="password" name="employeepassword" value="" id="employeepassword">
+    <br>
+    <label for="name">Name of Employee:</label>
+    <input type="text" name="name" value="" id="name">
+    <br>
+    <label for="email">Employee Email:</label>
+    <input type="text" name="email" value="" id="email">
+    <br>
+    <label for="phoneno">Employee Phone number:</label>
+    <input type="text" name="phoneno" value="" id="phoneno">
+    <br>
+    <label for="aadharno">Employee aadhar number:</label>
+    <input type="text" name="aadharno" value="" id="aadharno">
+    <br>
+    <label for="address">Employee address:</label>
+    <input type="text" name="address" value="" id="address">
+    <br>
+    <label for="dob">Date of Birth</label>
+    <input type="datetime-local" name="dob" value="" id="dob">
+    <br>
+    <label for="salary">Employee Salary:</label>
+    <input type="number" name="salary" value="" id="salary">
+    <br>
+    <label for="designation">Employeee Designation:</label>
+    <input type="text" name="designation" value="" id="designation">
+    <br>
+    <label for="join">Date of Join</label>
+    <input type="datetime-local" name="join" value="" id="join">
+    <br>
+    <label>Availability:</label>
+    <label for="availability1">YES</label>
+    <input type="radio" name="availability" value="True" id="availability1">
+    <label for="availability2">NO:</label>
+    <input type="radio" name="availability" value="False" id="availability2">
+    <br>
+    <input type="submit" value="Submit">
+
+
+</form>
+{% endblock %}
