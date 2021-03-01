@@ -1,0 +1,10 @@
+{% extends 'base.html' %}
+{% block content %}
+{% if form.errors %}
+<p class="error"> Invalid CUSTOMER info </p>
+
+{% endif %}
+<form action="/customer_login/customerinfo/">{% csrf_token %}
+
+</form>
+{% endblock %}

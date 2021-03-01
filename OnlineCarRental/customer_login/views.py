@@ -27,3 +27,11 @@ def customerinfo(request):
                  customer_dob=customerdob)
     s.save()
     return HttpResponseRedirect('/customer_login/registersuccess/')
+
+
+def registersuccess(request):
+    return render(request, 'customerregistered.html')
+
+
+class CustomerListView(generic.ListView):
+    model = Customer

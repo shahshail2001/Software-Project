@@ -22,4 +22,5 @@ urlpatterns = [
     url('loginmodule', include('loginmodule.urls')),
     url('employee_dashboard', include('employee_dashboard.urls')),
     url('employee_login', include('employee_login.urls')),
+    url('customer_login', include('customer_login.urls'))
 ]
