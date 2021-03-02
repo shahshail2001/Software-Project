@@ -1,10 +1,34 @@
-{% extends 'base.html' %}
+{% extends 'base1.html' %}
 {% block content %}
 {% if form.errors %}
 <p class="error"> Invalid CUSTOMER info </p>
 
 {% endif %}
 <form action="/customer_login/customerinfo/">{% csrf_token %}
-
+    <label for="username">Username:</label>
+    <input type="text" name="username" value="" id="username">
+    <br>
+    <label for="password">Password:</label>
+    <input type="password" name="password" value="" id="password">
+    <br>
+    <label for="name">Enter Your Name:</label>
+    <input type="text" name="name" value="" id="name">
+    <br>
+    <label for="email">Enter Your Email:</label>
+    <input type="text" name="email" value="" id="email">
+    <br>
+    <label for="phoneno">Enter Your Phone Number:</label>
+    <input type="text" name="phoneno" value="" id="phoneno">
+    <br>
+    <label for="aadhar">Enter Your Aadhar number:</label>
+    <input type="text" name="aadhar" value="" id="aadhar">
+    <br>
+    <label for="address">Enter Your address:</label>
+    <input type="text" name="address" value="" id="address">
+    <br>
+    <label for="dob">Enter Your Date of Birth:</label>
+    <input type="datetime-local" name="dob" value="" id="dob">
+    <br>
+    <input type="submit" value="Submit">
 </form>
 {% endblock %}

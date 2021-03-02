@@ -15,7 +15,7 @@ def getemployee(request):
 def deleteemployeeinfo(request):
     c = {}
     c.update(csrf(request))
-    return render(request, 'deleteemployeerecord.html')
+    return render(request, 'deleteemployeerecord.html', c)
 
 
 def adminlogin(request):
@@ -68,6 +68,8 @@ def deleteemployee(request):
     if not employee:
         return HttpResponseRedirect('/employee_login/employeedeleteunsuccessful')
     else:
+        for e in employee:
+            e.delete()
         return render(request, 'deletedemployeerecord.html', '')
 
 

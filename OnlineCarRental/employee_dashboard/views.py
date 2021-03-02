@@ -5,9 +5,16 @@ from django.views import generic
 from django.template.context_processors import csrf
 from employee_dashboard.models import Car
 from employee_login.models import Employee
+from django.contrib import auth
 
 
 # Create your views here.
+def login(request):
+    c = {}
+    c.update(csrf(request))
+    return render(request, 'employeelogin.html', c)
+
+
 def getcarinfo(request):
     c = {}
     c.update(csrf(request))
@@ -18,6 +25,17 @@ def deleteinfo(request):
     c = {}
     c.update(csrf(request))
     return render(request, 'deleterecord.html')
+
+
+def authorize(request):
+    username = request.POST.get('username', '')
+    password = request.POST.get('password', '')
+    user = auth.authenticate(employee_username=username, employee_password=password)
+    if user is not None:
+        auth.login(request, user)
+        return redirect('http://localhost:8000/employee_dashboard/employeehomepage.html')
+    else:
+        return render(request, 'invalid.html')
 
 
 def addcarinfo(request):

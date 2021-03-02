@@ -16,11 +16,13 @@ Including another URLconf
 from django.contrib import admin
 from django.urls import path, include
 from django.conf.urls import url
+from django.conf import settings
+from django.conf.urls.static import static
 
 urlpatterns = [
-    url('admin/', admin.site.urls),
-    url('loginmodule', include('loginmodule.urls')),
-    url('employee_dashboard', include('employee_dashboard.urls')),
-    url('employee_login', include('employee_login.urls')),
-    url('customer_login', include('customer_login.urls'))
-]
+                  url('admin/', admin.site.urls),
+                  url('loginmodule', include('loginmodule.urls')),
+                  url('employee_dashboard', include('employee_dashboard.urls')),
+                  url('employee_login', include('employee_login.urls')),
+                  url('customer_login', include('customer_login.urls'))
+              ] + static(settings.MEDIA_URL, document_root=settings.MEDIA_ROOT)

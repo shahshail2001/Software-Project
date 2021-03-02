@@ -2,7 +2,7 @@ from django.urls import path
 from loginmodule.views import login, auth_view, logout, loggedin, invalidlogin
 from django.contrib.auth import views as auth_views
 from django.conf.urls import url
-
+from employee_login.models import Employee
 urlpatterns = [
     path('', login),
     path('/auth/', auth_view),

@@ -12,6 +12,12 @@ def getcustomer(request):
     return render(request, 'addcustomerinfo.html', c)
 
 
+def deletecustomer(request):
+    c = {}
+    c.update(csrf(request))
+    return render(request, 'deletecustomer.html', c)
+
+
 def customerinfo(request):
     customerusername = request.POST.get('username', '')
     customerpassword = request.POST.get('password', '')
@@ -19,7 +25,7 @@ def customerinfo(request):
     customeremail = request.POST.get('email', '')
     customerphone = request.POST.get('phoneno', '')
     customeraadhar = request.POST.get('aadhar', '')
-    customeraddress = request.POST.get('adress', '')
+    customeraddress = request.POST.get('address', '')
     customerdob = request.POST.get('dob')
     s = Customer(customer_id=None, customer_username=customerusername, customer_password=customerpassword,
                  customer_name=customername, customer_email=customeremail, customer_phone_no=customerphone,
@@ -31,6 +37,18 @@ def customerinfo(request):
 
 def registersuccess(request):
     return render(request, 'customerregistered.html')
+
+
+def delete_customer(request):
+    customerid = request.POST.get('customerid', '')
+    customerusername = request.POST.get('customername', '')
+    customer = Customer.objects.filter(customer_id=customerid, customer_username=customerusername)
+    if not customer:
+        return render(request, 'customernotfound.html')
+    else:
+        for i in customer:
+            i.delete()
+        return render(request, 'deletecustomerrecord.html')
 
 
 class CustomerListView(generic.ListView):
