@@ -18,6 +18,16 @@ def deletecustomer(request):
     return render(request, 'deletecustomer.html', c)
 
 
+def customerlogin(request):
+    username = request.POST.get('username', '')
+    password = request.POST.get('password', '')
+    customer = Customer.objects.all()
+    for i in customer:
+        if i.customer_username == username and i.customer_password == password:
+            return render(request, 'customerhomepage.html', {"customerusername": username})
+        else:
+            return HttpResponse("Invalid Credentials")
+
 def customerinfo(request):
     customerusername = request.POST.get('username', '')
     customerpassword = request.POST.get('password', '')
@@ -49,6 +59,11 @@ def delete_customer(request):
         for i in customer:
             i.delete()
         return render(request, 'deletecustomerrecord.html')
+
+
+def viewcustomer(request):
+    customer = Customer.objects.all()
+    return render(request, 'view_customers.html', {'customer': customer})
 
 
 class CustomerListView(generic.ListView):

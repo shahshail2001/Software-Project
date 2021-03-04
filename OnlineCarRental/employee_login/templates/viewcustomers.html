@@ -1,0 +1,15 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Customer List</title>
+</head>
+<body>
+    {% if customer %}
+    <p>The registered customers are:</p><br>
+    {% for c in customer %}
+    <li>Customer id: {{ c.customer_id }}</li>
+    {% endfor %}
+    {% endif %}
+</body>
+</html>

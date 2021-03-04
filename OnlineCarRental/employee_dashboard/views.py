@@ -6,6 +6,7 @@ from django.template.context_processors import csrf
 from employee_dashboard.models import Car
 from employee_login.models import Employee
 from django.contrib import auth
+from django.contrib.auth.models import User
 
 
 # Create your views here.
@@ -30,10 +31,10 @@ def deleteinfo(request):
 def authorize(request):
     username = request.POST.get('username', '')
     password = request.POST.get('password', '')
-    user = auth.authenticate(employee_username=username, employee_password=password)
+    user = auth.authenticate(username=username, password=password)
     if user is not None:
         auth.login(request, user)
-        return redirect('http://localhost:8000/employee_dashboard/employeehomepage.html')
+        return render(request, 'employeehomepage.html')
     else:
         return render(request, 'invalid.html')
 

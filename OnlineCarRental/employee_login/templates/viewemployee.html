@@ -5,10 +5,54 @@
     <title>Employee Info</title>
 </head>
 <body>
+{% if employees %}
 <p>The employees in the Company are:</p><br>
-    {% for employee in employees %}
-    <li>Employee id: {{ employee.employee_id }}</li><br>
-    <li>Employee username: {{ employee.employee_username }}</li>
-    {% endfor %}
+{% for employee in employees %}
+<table border="2">
+    <tr>
+        <td>Employee Id:</td>
+        <td>{{ employee.employee_id }}</td>
+    </tr>
+    <tr>
+        <td>Employee Username:</td>
+        <td>{{ employee.employee_username }}</td>
+    </tr>
+    <tr>
+        <td>Employee Name:</td>
+        <td>{{ employee.employee_name }}</td>
+    </tr>
+    <tr>
+        <td>Employee Email:</td>
+        <td>{{ employee.employee_email }}</td>
+    </tr>
+    <tr>
+        <td>Employee Phone number:</td>
+        <td>{{ employee.employee_phone_no }}</td>
+    </tr>
+    <tr>
+        <td>Employee Aadhar number:</td>
+        <td>{{ employee.employee_aadhar_no }}</td>
+    </tr>
+    <tr>
+        <td>Employee Address:</td>
+        <td>{{ employee.employee_address }}</td>
+    </tr>
+    <tr>
+        <td>Employee Date of Birth:</td>
+        <td>{{ employee.employee_dob }}</td>
+    </tr>
+    <tr>
+        <td>Employee salary:</td>
+        <td>{{ employee.employee_salary }}</td>
+    </tr>
+    <tr>
+        <td>Employee Designation:</td>
+        <td>{{ employee.employee_designation }}</td>
+    </tr>
+</table>
+{% endfor %}
+{% else %}
+<p>No employees are registered yet.</p>
+{% endif %}
 </body>
 </html>
