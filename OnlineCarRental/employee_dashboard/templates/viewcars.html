@@ -6,8 +6,13 @@
 
 </head>
 <body>
+{% if car %}
+
     {% for car in cars %}
     <li>{{ car.car_company }}</li>
     {% endfor %}
+{% else %}
+<h3>No Cars are Registered right now</h3>
+{% endif %}
 </body>
 </html>

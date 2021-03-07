@@ -1,0 +1,12 @@
+from django.shortcuts import render, redirect
+from django.views.generic import TemplateView
+from django.http import HttpResponseRedirect, HttpResponse
+from django.views import generic
+from django.template.context_processors import csrf
+from employee_dashboard.models import Car
+
+
+# Create your views here.
+def BookCar(request):
+    cars = Car.objects.all()
+    return render(request, 'book_car.html', {'cars': cars})

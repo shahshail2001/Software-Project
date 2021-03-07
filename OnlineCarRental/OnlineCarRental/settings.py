@@ -40,6 +40,7 @@ INSTALLED_APPS = [
     'employee_login',
     'employee_dashboard',
     'loginmodule',
+    'Car_Booking',
 ]
 
 MIDDLEWARE = [

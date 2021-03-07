@@ -49,7 +49,16 @@
         <td>Employee Designation:</td>
         <td>{{ employee.employee_designation }}</td>
     </tr>
+    <tr>
+        <td>Employee Date of Join:</td>
+        <td>{{ employee.date_of_join }}</td>
+    </tr>
+    <tr>
+        <td>Availability?</td>
+        <td>{{ employee.check_availability }}</td>
+    </tr>
 </table>
+<br><br>
 {% endfor %}
 {% else %}
 <p>No employees are registered yet.</p>

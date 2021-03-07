@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>BOOK CAR</title>
+</head>
+<body>
+{% if cars %}
+<h3>The cars available for booking are:</h3>
+{% for c in cars %}
+<form action="/Car_Booking/booking/" method="post">
+    <table border="2">
+        <th colspan="2">CAR_ID: {{ c.car_id }} </th>
+        <tr>
+            <td>Car Company:</td>
+            <td>{{ c.car_company }}</td>
+        </tr>
+        <tr>
+            <td>Car Type:</td>
+            <td>{{ c.car_class_type }}</td>
+        </tr>
+        <tr>
+            <td>Price(Per Day):</td>
+            <td>{{ c.price_per_day }}</td>
+        </tr>
+        <tr>
+            <td>Car Number:</td>
+            <td>{{ c.car_number }}</td>
+        </tr>
+        <tr>
+            <td colspan="2" align="center"><input type="submit" value="BOOK"></td>
+        </tr>
+    </table>
+</form>
+<br><br>
+{% endfor %}
+{% else %}
+<h3>No Car Bookings Available right now</h3>
+{% endif %}
+</body>
+</html>
