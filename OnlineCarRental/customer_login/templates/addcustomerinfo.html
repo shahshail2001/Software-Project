@@ -1,34 +1,102 @@
 {% extends 'base1.html' %}
-{% block content %}
+{% block title %}Register {% endblock title %}
+{% block body %}
 {% if form.errors %}
 <p class="error"> Invalid CUSTOMER info </p>
 
 {% endif %}
-<form action="/customer_login/customerinfo/">{% csrf_token %}
-    <label for="username">Username:</label>
-    <input type="text" name="username" value="" id="username">
-    <br>
-    <label for="password">Password:</label>
-    <input type="password" name="password" value="" id="password">
-    <br>
-    <label for="name">Enter Your Name:</label>
-    <input type="text" name="name" value="" id="name">
-    <br>
-    <label for="email">Enter Your Email:</label>
-    <input type="text" name="email" value="" id="email">
-    <br>
-    <label for="phoneno">Enter Your Phone Number:</label>
-    <input type="text" name="phoneno" value="" id="phoneno">
-    <br>
-    <label for="aadhar">Enter Your Aadhar number:</label>
-    <input type="text" name="aadhar" value="" id="aadhar">
-    <br>
-    <label for="address">Enter Your address:</label>
-    <input type="text" name="address" value="" id="address">
-    <br>
-    <label for="dob">Enter Your Date of Birth:</label>
-    <input type="datetime-local" name="dob" value="" id="dob">
-    <br>
-    <input type="submit" value="Submit">
-</form>
-{% endblock %}
+
+<!doctype html>
+<html lang="en">
+
+<head>
+    <!-- Required meta tags -->
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+
+    <!-- Bootstrap CSS -->
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css" integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous">
+
+    <!-- fontawesome -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+
+    
+<style>
+body {
+  background-image: url('/static/img/3.jpg');
+  background-repeat: no-repeat;
+  background-attachment: fixed;
+  background-size: 100% 100%;
+
+}
+</style>
+
+
+   
+
+</head>
+
+<body>
+   {%if Message%}
+    <div class="container">
+        <div class="alert alert-warning alert-dismissible fade show my-2" role="alert">
+            <strong>{{Message}}!!</strong>
+            <button type="button" class="close" data-dismiss="alert" aria-label="Close">
+                <span aria-hidden="true">&times;</span>
+            </button>
+        </div>
+    </div>
+    {%endif%}
+
+    <div class="container my-5 p-3 lead" id="signin">
+        <form action=""/customer_login/customerinfo/" class="px-4 py-3" method="post" enctype="multipart/form-data">
+            {% csrf_token %}
+            <div class="form-group">
+                <label for="username">Username</label>
+                <input type="text" class="form-control" id="Username" name="customer_firstname" placeholder="Harshthumar" autocomplete="off" required>
+            </div>
+             <div class="form-group">
+                <label for="password">Password</label>
+                <input type="password" class="form-control" name="customer_password" id="password" placeholder="Password" required>
+            </div>
+            <div class="form-group">
+                <label for="name">Name</label>
+                <input type="text" class="form-control" id="name" name="customer_name" placeholder="harsh" autocomplete="off" required>
+            </div>
+            <div class="form-group">
+                <label for="email">Email address</label>
+                <input type="email" class="form-control" name="customer_email" id="email" placeholder="email@example.com" autocomplete="off" required>
+            </div>
+            <div class="form-group">
+                <label for="mobileno">Mobile Number</label>
+                <input type="text" class="form-control" name="customer_mobileno" id="mobileno" placeholder="0123456789" autocomplete="off" required>
+            </div>
+             <div class="form-group">
+                <label for="mobileno">Aadhar-card Number</label>
+                <input type="text" class="form-control" name="customer_aadharno" id="aadharo" placeholder="123456789523" autocomplete="off" required>
+            </div>
+            <div class="form-group">
+                <label for="dob">Date of Birth</label>
+                <input type="date" class="form-control" id="dob" name="customer_dob" placeholder="Date of birth" autocomplete="off" required>
+            </div>
+
+             <div class="form-group">
+                <label for="address">Address</label>
+                <input type="text" class="form-control" name="customer_address" id="address" placeholder="123 Main Street, Apartment, studio, or floor" autocomplete="off" required>
+            </div>
+             <input type="submit" value="Register" class="btn btn-primary" />
+            
+        <div class="px-4 mb-3">
+            Already have account? <a href="/signin">Login</a>
+        </div>
+    </div>
+
+    <!-- Optional JavaScript -->
+    <!-- jQuery first, then Popper.js, then Bootstrap JS -->
+    <script src="https://code.jquery.com/jquery-3.2.1.slim.min.js " integrity="sha384-KJ3o2DKtIkvYIK3UENzmM7KCkRr/rE9/Qpg6aAZGJwFDMVNA/GpGFF93hXpG5KkN " crossorigin="anonymous "></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.12.9/umd/popper.min.js " integrity="sha384-ApNbgh9B+Y1QKtv3Rn7W3mgPxhU9K/ScQsAP7hUibX39j7fakFPskvXusvfa0b4Q " crossorigin="anonymous "></script>
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js " integrity="sha384-JZR6Spejh4U02d8jOt6vLEHfe/JQGiRRSQQxSfFWpi1MquVdAyjUar5+76PVCmYl " crossorigin="anonymous "></script>
+</body>
+
+</html>
+{% endblock body%}

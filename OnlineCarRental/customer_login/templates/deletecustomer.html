@@ -1,18 +1,36 @@
-<!DOCTYPE html>
-<html lang="en">
+{%extends 'base1.html'%} {% load static %}
+{% block title %}DELETE ACCOUNT {% endblock title %}
+{% block body %}
 <head>
-    <meta charset="UTF-8">
-    <title>DELETE ACCOUNT</title>
+<style>
+body {
+  background-image: url('/static/img/1.jpg');
+  background-repeat: no-repeat;
+  background-attachment: fixed;
+  background-size: 100% 100%;
+}
+</style>
 </head>
 <body>
-<form action="/customer_login/delete_customer/" method="post">{% csrf_token %}
+<form action="" method="post">{% csrf_token %}
+<div class="form-group">
     <label for="customerid">Employeeid:</label>
+    </div>
+    <div class="form-group">
     <input type="number" name="customerid" value="" id="customerid">
+    </div>
     <br>
+    <div class="form-group">
     <label for="customerusername">Employee Username:</label>
+    </div>
+    <div class="form-group">
     <input type="text" name="customername" value="" id="customerusername">
+    </div>
     <br>
-    <input type="submit" value="Submit">
+    <div class="form-group">
+    <input type="submit" onclick="clicked()" value="Submit">
+    </div>
 </form>
 </body>
 </html>
+{% endblock body %}
