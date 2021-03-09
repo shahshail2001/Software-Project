@@ -11,4 +11,4 @@ class Customer(models.Model):
     customer_phone_no = models.CharField(max_length=10)
     customer_aadhar_no = models.CharField(max_length=12)
     customer_address = models.TextField()
-    customer_dob = models.DateTimeField()
+    customer_dob = models.DateField()

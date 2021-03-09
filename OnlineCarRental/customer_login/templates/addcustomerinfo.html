@@ -4,7 +4,7 @@
 <p class="error"> Invalid CUSTOMER info </p>
 
 {% endif %}
-<form action="/customer_login/customerinfo/">{% csrf_token %}
+<form action="/customer_login/customerinfo/" method="post">{% csrf_token %}
     <label for="username">Username:</label>
     <input type="text" name="username" value="" id="username">
     <br>
@@ -26,8 +26,8 @@
     <label for="address">Enter Your address:</label>
     <input type="text" name="address" value="" id="address">
     <br>
-    <label for="dob">Enter Your Date of Birth:</label>
-    <input type="datetime-local" name="dob" value="" id="dob">
+    <label for="dateofbirth">Enter Your Date of Birth:</label>
+    <input type="date" name="dateofbirth" value="" id="dateofbirth">
     <br>
     <input type="submit" value="Submit">
 </form>

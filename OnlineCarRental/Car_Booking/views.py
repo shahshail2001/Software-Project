@@ -10,3 +10,9 @@ from employee_dashboard.models import Car
 def BookCar(request):
     cars = Car.objects.all()
     return render(request, 'book_car.html', {'cars': cars})
+
+
+def booking(request):
+    car_id = request.POST.get('carid', '')
+    cars = Car.objects.filter(car_id=car_id)
+    return render(request, 'carbooking.html', {'cars': cars})

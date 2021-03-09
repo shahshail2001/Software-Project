@@ -18,39 +18,36 @@ def deletecustomer(request):
     return render(request, 'deletecustomer.html', c)
 
 
+def customerloginpage(request):
+    return render(request, 'customerlogin.html')
+
+
 def customerlogin(request):
     username = request.POST.get('username', '')
     password = request.POST.get('password', '')
     customer = Customer.objects.all()
     for i in customer:
         if i.customer_username == username and i.customer_password == password:
-            return render(request, 'customerhomepage.html', {"customerusername": username})
+            return render(request, 'customerhomepage.html', {"customerusername": i.customer_username})
         else:
             return HttpResponse("Invalid Credentials")
 
 
 def customerinfo(request):
-    try:
-        customerusername = request.POST.get('username', '')
-        customer = Customer.objects.all()
-        for i in customer:
-            if i.customer_username == customerusername:
-                return HttpResponse("This username already exists")
-    except:
-        customerusername = request.POST.get('username', '')
-        customerpassword = request.POST.get('password', '')
-        customername = request.POST.get('name', '')
-        customeremail = request.POST.get('email', '')
-        customerphone = request.POST.get('phoneno', '')
-        customeraadhar = request.POST.get('aadhar', '')
-        customeraddress = request.POST.get('address', '')
-        customerdob = request.POST.get('dob')
-        s = Customer(customer_id=None, customer_username=customerusername, customer_password=customerpassword,
-                     customer_name=customername, customer_email=customeremail, customer_phone_no=customerphone,
-                     customer_aadhar_no=customeraadhar, customer_address=customeraddress,
-                     customer_dob=customerdob)
-        s.save()
-        return HttpResponseRedirect('/customer_login/registersuccess/')
+    customerusername = request.POST.get('username', '')
+    customerpassword = request.POST.get('password', '')
+    customername = request.POST.get('name', '')
+    customeremail = request.POST.get('email', '')
+    customerphone = request.POST.get('phoneno', '')
+    customeraadhar = request.POST.get('aadhar', '')
+    customeraddress = request.POST.get('address', '')
+    customerdob = request.POST.get('dateofbirth', '')
+    s = Customer(customer_id=None, customer_username=customerusername, customer_password=customerpassword,
+                 customer_name=customername, customer_email=customeremail, customer_phone_no=customerphone,
+                 customer_aadhar_no=customeraadhar, customer_address=customeraddress,
+                 customer_dob=customerdob)
+    s.save()
+    return HttpResponseRedirect('/customer_login/registersuccess/')
 
 
 def registersuccess(request):
