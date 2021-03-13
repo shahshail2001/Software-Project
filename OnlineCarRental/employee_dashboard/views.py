@@ -47,7 +47,7 @@ def addcarinfo(request):
     fueltype = request.POST.get('fuel', '')
     cardescription = request.POST.get('description', '')
     caravailability = request.POST.get('availability', 'True')
-    s = Car(car_id=None, car_company=carname, car_class_type=carclasstype, price_per_day=priceperkm,
+    s = Car(car_company=carname, car_class_type=carclasstype, price_per_day=priceperkm,
             car_number=carnumber,
             fuel_type=fueltype, car_description=cardescription, car_availability=caravailability)
     s.save()

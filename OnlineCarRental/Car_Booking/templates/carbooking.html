@@ -6,28 +6,31 @@
 </head>
 <body>
 <h1 align="center">Enter Your Booking Details</h1>
-{% for c in cars %}
+
 <table border="2" align="center">
-    <th colspan="2"></th>
+    <th colspan="2">Your SELECTED CAR</th>
     <tr>
         <td>Car:</td>
-        <td>{{ c.car_company }}</td>
+        <td>{{ cars.car_company }}</td>
     </tr>
     <tr>
         <td>Car Class:</td>
-        <td>{{ c.car_class_type }}</td>
+        <td>{{ cars.car_class_type }}</td>
     </tr>
     <tr>
         <td>Price:</td>
-        <td>{{ c.price_per_day }}</td>
+        <td>{{ cars.price_per_day }}</td>
     </tr>
     <tr>
         <td>Car Number:</td>
-        <td>{{ c.car_number }}</td>
+        <td>{{ cars.car_number }}</td>
     </tr>
 </table>
-<form action="" method="post">{% csrf_token %}
-    <table border="2" align="center">
+<br><br>
+
+<table border="2" align="center">
+    <form action="/Car_Booking/book/" method="post">{% csrf_token %}
+        <input type="hidden" value="{{ cars.car_id }}" name="carid">
         <tr>
             <td>Enter the date of car to take:</td>
             <td><input type="date" name="cardate"></td>
@@ -39,8 +42,8 @@
         <tr>
             <td colspan="2" align="center"><input type="submit" value="BOOK"></td>
         </tr>
-    </table>
-</form>
-{% endfor %}
+    </form>
+</table>
+
 </body>
 </html>

@@ -13,6 +13,19 @@ def BookCar(request):
 
 
 def booking(request):
-    car_id = request.POST.get('carid', '')
-    cars = Car.objects.filter(car_id=car_id)
+    carid = request.POST.get('carid')
+    cars = Car.objects.get(car_id=carid)
+    print(cars)
     return render(request, 'carbooking.html', {'cars': cars})
+
+
+def book(request):
+    carid = request.POST.get('carid')
+    cardate = request.POST.get('cardate')
+    returndate = request.POST.get('returndate')
+    context = {
+        "carid": carid,
+        "cardate": cardate,
+        "returndate": returndate
+    }
+    return render(request, 'confirmbooking.html', context)

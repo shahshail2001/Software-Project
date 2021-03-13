@@ -1,10 +1,43 @@
-<!DOCTYPE html>
-<html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <title>Title</title>
-</head>
-<body>
-<h1>Welcome</h1>
-</body>
-</html>
+<!--<!DOCTYPE html>-->
+<!--<html lang="en">-->
+<!--<head>-->
+<!--    <meta charset="UTF-8">-->
+<!--    <title>Title</title>-->
+<!--</head>-->
+<!--<body>-->
+<!--<h1>Welcome</h1>-->
+<!--</body>-->
+<!--</html>-->
+{%extends 'base1.html'%} {% load static %}
+{%block title%}Home {%endblock title%}
+
+{% block body%}
+
+<div class="container-fluid px-0">
+    <div id="carouselExampleControls" class="carousel slide" data-bs-ride="carousel">
+        <div class="carousel-inner">
+            <div class="carousel-item active">
+                <img src="/static/img/7.jpg" class="d-block w-100" alt="..." width="400" height="600">
+            </div>
+            <div class="carousel-item">
+                <img src="/static/img/5.jpg" class="d-block w-100" alt="..." width="400" height="650">
+            </div>
+            <div class="carousel-item">
+                <img src="/static/img/6.jpg" class="d-block w-100" alt="..." width="400" height="600">
+            </div>
+        </div>
+        <button class="carousel-control-prev" type="button" data-bs-target="#carouselExampleControls"
+                data-bs-slide="prev">
+            <span class="carousel-control-prev-icon" aria-hidden="true"></span>
+            <span class="visually-hidden">Previous</span>
+        </button>
+        <button class="carousel-control-next" type="button" data-bs-target="#carouselExampleControls"
+                data-bs-slide="next">
+            <span class="carousel-control-next-icon" aria-hidden="true"></span>
+            <span class="visually-hidden">Next</span>
+        </button>
+    </div>
+</div>
+
+
+{% endblock body%}

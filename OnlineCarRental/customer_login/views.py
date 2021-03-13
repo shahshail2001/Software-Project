@@ -29,8 +29,8 @@ def customerlogin(request):
     for i in customer:
         if i.customer_username == username and i.customer_password == password:
             return render(request, 'customerhomepage.html', {"customerusername": i.customer_username})
-        else:
-            return HttpResponse("Invalid Credentials")
+
+    return HttpResponse("Invalid Credentials")
 
 
 def customerinfo(request):

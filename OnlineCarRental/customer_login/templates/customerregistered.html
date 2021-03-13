@@ -1,11 +1,26 @@
-<!DOCTYPE html>
-<html lang="en">
+{% extends 'base1.html'%}
+{% block title %}Customer Registered {% endblock title %}
+{% block body %}
+
+
 <head>
-    <meta charset="UTF-8">
-    <title>Title</title>
+    <style>
+body {
+  background-image: url('/static/img/2.jpg');
+  background-repeat: no-repeat;
+  background-attachment: fixed;
+  background-size: 100% 100%;
+  color:yellow;
+}
+
+
+
+
+    </style>
 </head>
-<body>
-    <h2>Thank You for Registering</h2>
-<p>Click <a href="customerhomepage.html">Here</a> to go to your home page</p>
-</body>
-</html>
+
+<h2 align=center>Thank You for Registering</h2>
+<p align=center>Click <a href="/customer_login/customerloginpage/" align=center>Here</a> to go to your home page</p>
+
+
+{% endblock body %}
