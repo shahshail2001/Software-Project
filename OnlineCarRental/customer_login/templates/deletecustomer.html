@@ -1,10 +1,24 @@
-<!DOCTYPE html>
-<html lang="en">
+{% extends 'base1.html'%}
+{% block title %}DELETE ACCOUNT{% endblock title %}
+{% block body %}
+
+
 <head>
-    <meta charset="UTF-8">
-    <title>DELETE ACCOUNT</title>
+    <style>
+body {
+  background-image: url('/static/img/10.jpg');
+  background-repeat: no-repeat;
+  background-attachment: fixed;
+  background-size: 100% 100%;
+  color:yellow;
+}
+
+
+
+
+    </style>
 </head>
-<body>
+
 <form action="/customer_login/delete_customer/" method="post">{% csrf_token %}
     <label for="customerid">Employeeid:</label>
     <input type="number" name="customerid" value="" id="customerid">
@@ -14,5 +28,7 @@
     <br>
     <input type="submit" value="Submit">
 </form>
-</body>
-</html>
+
+
+{% endblock body %}
+

@@ -1,11 +1,8 @@
-<!DOCTYPE html>
-<html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <title>Car Booking</title>
-</head>
-<body>
-<h1 align="center">Enter Your Booking Details</h1>
+{% extends 'base1.html' %}{% load static %}
+{% block title%}BOOK CAR{% endblock title%}
+
+{% block body %}
+ <h1 align="center">Enter Your Booking Details</h1>
 
 <table border="2" align="center">
     <th colspan="2">Your SELECTED CAR</th>
@@ -45,5 +42,7 @@
     </form>
 </table>
 
-</body>
+
+{% endblock body %}
+
 </html>
