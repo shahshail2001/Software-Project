@@ -4,6 +4,7 @@ from django.http import HttpResponseRedirect, HttpResponse
 from django.views import generic
 from django.template.context_processors import csrf
 from employee_dashboard.models import Car
+from datetime import date
 
 
 # Create your views here.
@@ -15,7 +16,6 @@ def BookCar(request):
 def booking(request):
     carid = request.POST.get('carid')
     cars = Car.objects.get(car_id=carid)
-    print(cars)
     return render(request, 'carbooking.html', {'cars': cars})
 
 
@@ -23,7 +23,18 @@ def book(request):
     carid = request.POST.get('carid')
     cardate = request.POST.get('cardate')
     returndate = request.POST.get('returndate')
+    cars = Car.objects.get(car_id=carid)
+    res1 = [int(i) for i in cardate.split('-') if i.isdigit()]
+    d0 = date(res1[0], res1[1], res1[2])
+    res2 = [int(i) for i in returndate.split('-') if i.isdigit()]
+    d1 = date(res2[0], res2[1], res2[2])
+    total_days = d1 - d0
+    total_days = total_days.days
+    total_amount = total_days * cars.price_per_day
     context = {
+        "total_days": total_days,
+        "total_amount": total_amount,
+        "cars": cars,
         "carid": carid,
         "cardate": cardate,
         "returndate": returndate

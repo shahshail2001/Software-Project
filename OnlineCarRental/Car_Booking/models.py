@@ -12,3 +12,4 @@ class Booking(models.Model):
     carbookdate = models.DateField()
     carreturndate = models.DateField()
     totalpayment = models.IntegerField()
+    total_no_of_days = models.IntegerField(default=0)

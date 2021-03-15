@@ -5,9 +5,50 @@
     <title>Confirm Booking</title>
 </head>
 <body>
-<h1>Hello</h1>
-<p>{{carid}}</p>
-<p>{{cardate}}</p>
-<p>{{returndate}}</p>
+<table border="2" align="center">
+    <th colspan="2">Your SELECTED CAR</th>
+    <tr>
+        <td>Car:</td>
+        <td>{{ cars.car_company }}</td>
+    </tr>
+    <tr>
+        <td>Car Class:</td>
+        <td>{{ cars.car_class_type }}</td>
+    </tr>
+    <tr>
+        <td>Price:</td>
+        <td>{{ cars.price_per_day }}</td>
+    </tr>
+    <tr>
+        <td>Car Number:</td>
+        <td>{{ cars.car_number }}</td>
+    </tr>
+    <tr>
+        <td>Car taking date:</td>
+        <td>{{ total_amount }}</td>
+    </tr>
+    <tr>
+        <td>Car return date:</td>
+        <td>{{ returndate }}</td>
+    </tr>
+    <tr>
+        <td>Total Days:</td>
+        <td>{{ total_days }}</td>
+    </tr>
+    <tr>
+        <td>Your total amount:</td>
+        <td>{{ total_amount }}</td>
+    </tr>
+</table>
+<form action="" method="post">
+    <input type="hidden" name="carid" value="{{ carid }}">
+    <input type="hidden" name="total_days" value="{{ total_days }}">
+    <input type="hidden" name="total_amount" value="{{ total_amount }}">
+    <input type="hidden" name="cardate" value="{{ total_amount }}">
+    <input type="hidden" name="returndate" value="{{ returndate }}">
+    <table >
+
+    </table>
+</form>
 </body>
 </html>
