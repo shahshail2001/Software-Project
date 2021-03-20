@@ -1,10 +1,17 @@
-<!DOCTYPE html>
-<html lang="en">
+{% extends 'base1.html' %}
+
+{% block title %}Car_Booking {% endblock title %}
+{% block body %}
 <head>
-    <meta charset="UTF-8">
-    <title>Car Booking</title>
+body {
+  background-image: url('/static/img/11.jpg');
+  background-repeat: no-repeat;
+  background-attachment: fixed;
+  background-size: 100% 100%;
+
+}
 </head>
-<body>
+
 <h1 align="center">Enter Your Booking Details</h1>
 
 <table border="2" align="center">
@@ -44,6 +51,4 @@
         </tr>
     </form>
 </table>
-
-</body>
-</html>
+{% endblock body %}

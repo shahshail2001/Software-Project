@@ -1,10 +1,15 @@
-<!DOCTYPE html>
-<html lang="en">
+{% extends 'base1.html' %}
+
+{% block title %}Confirm_Booking {% endblock title %}
+{% block body %}
 <head>
-    <meta charset="UTF-8">
-    <title>Payment</title>
+body {
+  background-image: url('/static/img/pay.jpg');
+  background-repeat: no-repeat;
+  background-attachment: fixed;
+  background-size: 100% 100%;
+
+}
 </head>
-<body>
-<h1>Pay Your rental fees here</h1>
-</body>
-</html>
+<h1 align="center">Pay your Rent here!!</h1>
+{% endblock body%}

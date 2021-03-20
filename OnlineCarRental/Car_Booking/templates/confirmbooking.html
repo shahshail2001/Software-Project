@@ -1,10 +1,16 @@
-<!DOCTYPE html>
-<html lang="en">
+{% extends 'base1.html' %}
+
+{% block title %}Confirm_Booking {% endblock title %}
+{% block body %}
 <head>
-    <meta charset="UTF-8">
-    <title>Confirm Booking</title>
+body {
+  background-image: url('/static/img/confirm.jpg');
+  background-repeat: no-repeat;
+  background-attachment: fixed;
+  background-size: 100% 100%;
+
+}
 </head>
-<body>
 <table border="2" align="center">
     <th colspan="2">Your SELECTED CAR</th>
     <tr>
@@ -61,5 +67,4 @@
         </tr>
     </table>
 </form>
-</body>
-</html>
+{% endblock body %}
