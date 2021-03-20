@@ -5,11 +5,13 @@ from django.views import generic
 from django.template.context_processors import csrf
 from employee_dashboard.models import Car
 from datetime import date
+from customer_login.models import Customer
+from Car_Booking.models import Booking
 
 
 # Create your views here.
 def BookCar(request):
-    cars = Car.objects.all()
+    cars = Car.objects.filter(car_availability=True)
     return render(request, 'book_car.html', {'cars': cars})
 
 
@@ -40,3 +42,39 @@ def book(request):
         "returndate": returndate
     }
     return render(request, 'confirmbooking.html', context)
+
+
+def donebooking(request):
+    carid = request.POST.get('carid')
+    total_days = request.POST.get('total_days')
+    total_amount = request.POST.get('total_amount')
+    cardate = request.POST.get('cardate')
+    returndate = request.POST.get('returndate')
+    username = request.POST.get('username')
+    password = request.POST.get('password')
+    car = Car.objects.get(car_id=carid)
+    customer = Customer.objects.get(customer_username=username, customer_password=password)
+    print(car)
+    return render(request, 'payment.html')
+
+
+def b(request):
+    carid = request.POST.get('carid')
+    total_days = request.POST.get('total_days')
+    total_amount = request.POST.get('total_amount')
+    cardate = request.POST.get('cardate')
+    returndate = request.POST.get('returndate')
+    username = request.POST.get('username')
+    password = request.POST.get('password')
+    car = Car.objects.get(car_id=carid)
+    if Customer.objects.filter(customer_username=username, customer_password=password).exists():
+        customer = Customer.objects.get(customer_username=username, customer_password=password)
+        s = Booking(customerid=customer.customer_id, customername=customer.customer_name, carid=carid,
+                    carname=car.car_company, carnumber=car.car_number, carbookdate=cardate, carreturndate=returndate,
+                    totalpayment=total_amount, total_no_of_days=total_days)
+        s.save()
+        car.car_availability = False
+        car.save()
+        return render(request, 'payment.html')
+    else:
+        return render(request, 'invalid_details.html')

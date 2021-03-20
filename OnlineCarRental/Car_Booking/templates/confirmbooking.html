@@ -40,14 +40,25 @@
         <td>{{ total_amount }}</td>
     </tr>
 </table>
-<form action="" method="post">
+<form action="/Car_Booking/b/" method="post">{% csrf_token %}
     <input type="hidden" name="carid" value="{{ carid }}">
     <input type="hidden" name="total_days" value="{{ total_days }}">
     <input type="hidden" name="total_amount" value="{{ total_amount }}">
-    <input type="hidden" name="cardate" value="{{ total_amount }}">
+    <input type="hidden" name="cardate" value="{{ cardate }}">
     <input type="hidden" name="returndate" value="{{ returndate }}">
-    <table >
-
+    <table align="center" border="2">
+        <th colspan="2">Enter your username and password to confirm your Booking</th>
+        <tr>
+            <td>Enter Your username:</td>
+            <td><input type="text" name="username" required></td>
+        </tr>
+        <tr>
+            <td>Enter Your password:</td>
+            <td><input type="password" name="password" required></td>
+        </tr>
+        <tr>
+            <td align="center" colspan="2"><input type="submit" name="submit" value="BOOK"></td>
+        </tr>
     </table>
 </form>
 </body>

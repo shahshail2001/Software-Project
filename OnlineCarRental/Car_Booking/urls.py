@@ -5,5 +5,7 @@ from . import views
 urlpatterns = [
     url('BookCar', views.BookCar),
     url('booking', views.booking),
-    url('book', views.book)
+    url('book', views.book),
+    url('donebooking', views.donebooking),
+    url('b', views.b)
 ]
