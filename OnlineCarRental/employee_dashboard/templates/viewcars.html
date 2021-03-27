@@ -6,11 +6,38 @@
 
 </head>
 <body>
-{% if car %}
+<a href="/employee_dashboard/employeehomepage.html">Home page</a>
+{% if cars %}
 
-    {% for car in cars %}
-    <li>{{ car.car_company }}</li>
-    {% endfor %}
+{% for car in cars %}
+<table border="2">
+    <tr>
+        <td>CAR COMPANY</td>
+        <td>{{ car.car_company }}</td>
+    </tr>
+    <tr>
+        <td>Car Class</td>
+        <td>{{ car.car_class_type }}</td>
+    </tr>
+    <tr>
+        <td>Price</td>
+        <td>{{ car.price_per_day }}</td>
+    </tr>
+    <tr>
+        <td>Car Number</td>
+        <td>{{ car.car_number }}</td>
+    </tr>
+    <tr>
+        <td>Car Fuel</td>
+        <td>{{ car.fuel_type }}</td>
+    </tr>
+    <tr>
+        <td>Car description</td>
+        <td>{{ car.car_description }}</td>
+    </tr>
+</table>
+<br>
+{% endfor %}
 {% else %}
 <h3>No Cars are Registered right now</h3>
 {% endif %}

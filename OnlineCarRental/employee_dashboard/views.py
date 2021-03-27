@@ -25,7 +25,8 @@ def getcarinfo(request):
 def deleteinfo(request):
     c = {}
     c.update(csrf(request))
-    return render(request, 'deleterecord.html')
+    car = Car.objects.all()
+    return render(request, 'deleterecord.html', {'car': car})
 
 
 def authorize(request):

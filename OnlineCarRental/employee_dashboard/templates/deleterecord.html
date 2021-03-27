@@ -5,11 +5,46 @@
     <title>DELETE CAR RECORD</title>
 </head>
 <body>
-<form action="/employee_dashboard/deletecarinfo/" method="post">{% csrf_token %}
-    <label for="carid">Enter Car Id:</label>
-    <input type="number" name="carid" value="" id="carid">
+{% if car %}
 
-    <input type="submit" value="Submit">
+{% for car in car %}
+<form action="" method="post">{% csrf_token %}
+    <table border="2">
+        <input type="hidden" name="carid" value="{{ car.car_id }}">
+        <tr>
+            <td>CAR COMPANY</td>
+            <td>{{ car.car_company }}</td>
+        </tr>
+        <tr>
+            <td>Car Class</td>
+            <td>{{ car.car_class_type }}</td>
+        </tr>
+        <tr>
+            <td>Price</td>
+            <td>{{ car.price_per_day }}</td>
+        </tr>
+        <tr>
+            <td>Car Number</td>
+            <td>{{ car.car_number }}</td>
+        </tr>
+        <tr>
+            <td>Car Fuel</td>
+            <td>{{ car.fuel_type }}</td>
+        </tr>
+        <tr>
+            <td>Car description</td>
+            <td>{{ car.car_description }}</td>
+        </tr>
+        <tr>
+            <td colspan="2" align="center"><input type="submit" name="submit" value="DELETE"></td>
+        </tr>
+    </table>
+    <br>
 </form>
+{% endfor %}
+{% else %}
+<h3>No Cars are Registered right now</h3>
+{% endif %}
+
 </body>
 </html>

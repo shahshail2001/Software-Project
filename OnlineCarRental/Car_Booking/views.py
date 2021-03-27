@@ -44,20 +44,6 @@ def book(request):
     return render(request, 'confirmbooking.html', context)
 
 
-def donebooking(request):
-    carid = request.POST.get('carid')
-    total_days = request.POST.get('total_days')
-    total_amount = request.POST.get('total_amount')
-    cardate = request.POST.get('cardate')
-    returndate = request.POST.get('returndate')
-    username = request.POST.get('username')
-    password = request.POST.get('password')
-    car = Car.objects.get(car_id=carid)
-    customer = Customer.objects.get(customer_username=username, customer_password=password)
-    print(car)
-    return render(request, 'payment.html')
-
-
 def b(request):
     carid = request.POST.get('carid')
     total_days = request.POST.get('total_days')
