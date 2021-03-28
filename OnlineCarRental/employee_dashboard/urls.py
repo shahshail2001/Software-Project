@@ -13,4 +13,6 @@ urlpatterns = [
     url('deleteinfo/', views.deleteinfo),
     url('deletecarinfo/', views.deletecarinfo),
     url('deleteunsuccessful/', views.deleteunsuccessful),
+    url('back_to_homepage/', views.back_to_homepage),
+    url('logout/', views.logout),
 ]

@@ -5,10 +5,15 @@
     <title>Hello</title>
 </head>
 <body>
-<h1> Login successfull</h1>
-<a href="/employee_dashboard/getcarinfo/">ADD CAR</a>&nbsp;
-<a href="/employee_dashboard/deleteinfo/">DELETE CAR</a>
+<div style="overflow: hidden;">
+    <p style="float: left;">Hi {{username}}&nbsp;&nbsp; <a href="/employee_dashboard/back_to_homepage/">HOME PAGE</a></p>
+    <p style="float: right;"><a href="/employee_dashboard/logout/">SignOut</a></p>
+</div>
+
+Click Here to add a car -> <a href="/employee_dashboard/getcarinfo/">ADD CAR</a>
 <br>
-<a href="/employee_dashboard/getcars/">View Cars</a>
+Click Here to remove a car -><a href="/employee_dashboard/deleteinfo/">DELETE CAR</a>
+<br>
+Click Here to view the Cars -><a href="/employee_dashboard/getcars/">View Cars</a>
 </body>
 </html>

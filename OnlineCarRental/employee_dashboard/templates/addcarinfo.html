@@ -2,28 +2,38 @@
 {% block content %}
 {% if form.errors %}
 <p class="error"> Invalid CAR info </p>
-
+<h1>Car Entry</h1>
 {% endif %}
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Car Entry</title>
+</head>
+<body>
+<h1>Car Entry</h1>
+<a href="/employee_dashboard/back_to_homepage/">Home Page</a>
 <form action="/employee_dashboard/addcarinfo/" method="post">{% csrf_token %}
     <label for="carcompany">Car Name:</label>
     <input type="text" name="carcompany" value="" id="carcompany">
-
+    <br>
     <label for="carclass">Car class:</label>
     <input type="text" name="carclass" value="" id="carclass">
-
+    <br>
     <label for="price">Price:</label>
     <input type="number" name="price" value="" id="price">
-
+    <br>
     <label for="cnumber">Car number:</label>
     <input type="text" name="cnumber" value="" id="cnumber">
-
+    <br>
 
     <label for="fuel">Car fuel:</label>
     <input type="text" name="fuel" value="" id="fuel">
-
+    <br>
     <label for="description">Car Description:</label>
     <input type="text" name="description" value="" id="description">
-
+    <br>
     <label>Car availability:</label>
 
     <label for="availability1">YES</label>
@@ -31,8 +41,9 @@
 
     <label for="availability2">NO:</label>
     <input type="radio" name="availability" value="False" id="availability2">
-
+    <br>
     <input type="submit" value="Submit">
 </form>
-
 {% endblock %}
+</body>
+</html>

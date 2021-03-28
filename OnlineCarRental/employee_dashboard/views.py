@@ -25,8 +25,14 @@ def getcarinfo(request):
 def deleteinfo(request):
     c = {}
     c.update(csrf(request))
-    car = Car.objects.all()
+    car = Car.objects.filter(car_availability=True)
     return render(request, 'deleterecord.html', {'car': car})
+
+
+def back_to_homepage(request):
+    c = {}
+    c.update(csrf(request))
+    return render(request, 'employeehomepage.html')
 
 
 def authorize(request):
@@ -35,7 +41,7 @@ def authorize(request):
     user = auth.authenticate(username=username, password=password)
     if user is not None:
         auth.login(request, user)
-        return render(request, 'employeehomepage.html')
+        return render(request, 'employeehomepage.html', {"username": request.user.username})
     else:
         return render(request, 'invalid.html')
 
@@ -57,6 +63,11 @@ def addcarinfo(request):
 
 def addsuccess(request):
     return render(request, 'addrecord.html')
+
+
+def logout(request):
+    auth.logout(request)
+    return render(request, 'addcustomerinfo.html')
 
 
 def getcars(request):
