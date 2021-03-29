@@ -5,6 +5,7 @@ from . import views
 urlpatterns = [
     url('login/', views.login),
     url('authorize/', views.authorize),
+    url('update_car/', views.update_car()),
     url('addcarinfo/', views.addcarinfo),
     url('getcarinfo/', views.getcarinfo),
     url('addsuccess/', views.addsuccess),

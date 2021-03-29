@@ -1,3 +1,5 @@
+{% extends 'base3.html' %}
+{% block body %}
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -5,6 +7,8 @@
     <title>DELETE CAR RECORD</title>
 </head>
 <body>
+
+{% if user.is_authenticated %}
 {% if car %}
 
 {% for car in car %}
@@ -45,6 +49,11 @@
 {% else %}
 <h3>No Cars are Registered right now</h3>
 {% endif %}
+{% else %}
+<h1>You Need To First Login To View This Page</h1>
+Click <a href="/customer_login/getcustomer/">HERE</a> to go back to the login page
+{% endif %}
 
 </body>
 </html>
+{% endblock body%}

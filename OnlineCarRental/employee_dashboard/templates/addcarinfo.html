@@ -1,10 +1,11 @@
-{% extends 'base.html' %}
-{% block content %}
+{% extends 'base3.html' %}
+{% block body %}
 {% if form.errors %}
 <p class="error"> Invalid CAR info </p>
 <h1>Car Entry</h1>
 {% endif %}
 
+{% if user.is_authenticated %}
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -44,6 +45,10 @@
     <br>
     <input type="submit" value="Submit">
 </form>
-{% endblock %}
+{% else %}
+<h1>You Need To First Login To View This Page</h1>
+Click <a href="/customer_login/getcustomer/">HERE</a> to go back to the login page
+{% endif %}
+{% endblock body%}
 </body>
 </html>

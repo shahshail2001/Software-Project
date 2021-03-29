@@ -1,3 +1,5 @@
+{% extends 'base3.html' %}
+{% block body %}
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -5,11 +7,61 @@
     <title>Update car</title>
 </head>
 <body>
+{% if user.is_authenticated %}
+
+{% if car %}
+
+    {% for car in car %}
 <form method="post" action="">
+    <table>
+        <tr>
+            <td>CAR COMPANY</td>
+            <td><input type="text" name="carcompany" value="{{ car.car_company }}"></td>
+        </tr>
+        <tr>
+            <td>Car Class</td>
+            <td><input type="text" name="carclass" value="{{ car.car_class_type }}"></td>
+        </tr>
+        <tr>
+            <td>Price</td>
+            <td><input type="number" name="price" value="{{ car.price_per_day }}"></td>
+        </tr>
+        <tr>
+            <td>Car Number</td>
+            <td><input type="text" name="carnumber" value="{{ car.car_number }}"></td>
+        </tr>
+        <tr>
+            <td>Car Fuel</td>
+            <td><input type="text" name="fuel" value="{{ car.fuel_type }}"></td>
+        </tr>
+        <tr>
+            <td>Car description</td>
+            <td><input type="text" name="description" value="{{ car.car_description }}"></td>
+        </tr>
+        <tr>
+            <td>Availability</td>
+            <td>Yes<input type="radio" name="availability" value="True">
+                <br>
+                No<input type="radio" name="availability" value="False">
+            </td>
+        </tr>
+        <tr>
+            <td><input type="submit" name="submit" value="Update"></td>
+        </tr>
+    </table>
     CarId:
     <input type="number" name="c_id">
     <br>
     <input type="submit" value="Submit">
 </form>
+    {% endfor %}
+{% else %}
+<h3>No Cars are Registered right now</h3>
+    {% endif %}
+{% else %}
+<h1>You Need To First Login To View This Page</h1>
+Click <a href="/customer_login/getcustomer/">HERE</a> to go back to the login page
+{% endif %}
+{% endblock body%}
 </body>
 </html>

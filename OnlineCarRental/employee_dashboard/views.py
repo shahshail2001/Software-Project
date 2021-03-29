@@ -32,7 +32,7 @@ def deleteinfo(request):
 def back_to_homepage(request):
     c = {}
     c.update(csrf(request))
-    return render(request, 'employeehomepage.html')
+    return render(request, 'employeehomepage.html', {"username": request.user.username})
 
 
 def authorize(request):
@@ -44,6 +44,11 @@ def authorize(request):
         return render(request, 'employeehomepage.html', {"username": request.user.username})
     else:
         return render(request, 'invalid.html')
+
+
+def update_car(request):
+    car = Car.objects.all()
+    return render(request, 'updatecar.html', {'car': car})
 
 
 def addcarinfo(request):

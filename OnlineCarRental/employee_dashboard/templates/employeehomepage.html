@@ -1,3 +1,9 @@
+{%extends 'base3.html'%} {% load static %}
+{%block title%}Home {%endblock title%}
+
+{% block body%}
+{% if user.is_authenticated %}
+
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -6,8 +12,7 @@
 </head>
 <body>
 <div style="overflow: hidden;">
-    <p style="float: left;">Hi {{username}}&nbsp;&nbsp; <a href="/employee_dashboard/back_to_homepage/">HOME PAGE</a></p>
-    <p style="float: right;"><a href="/employee_dashboard/logout/">SignOut</a></p>
+    <p style="float: left;">Hi {{username}}&nbsp;&nbsp;</p>
 </div>
 
 Click Here to add a car -> <a href="/employee_dashboard/getcarinfo/">ADD CAR</a>
@@ -15,5 +20,14 @@ Click Here to add a car -> <a href="/employee_dashboard/getcarinfo/">ADD CAR</a>
 Click Here to remove a car -><a href="/employee_dashboard/deleteinfo/">DELETE CAR</a>
 <br>
 Click Here to view the Cars -><a href="/employee_dashboard/getcars/">View Cars</a>
+<br>
+Click Here to update Car details -><a href="/employee_dashboard/update_car/">Update Cars</a>
+
+{% else %}
+<h1>You Need To First Login To View This Page</h1>
+Click <a href="/customer_login/getcustomer/">HERE</a> to go back to the login page
+{% endif %}
 </body>
 </html>
+
+{% endblock body%}

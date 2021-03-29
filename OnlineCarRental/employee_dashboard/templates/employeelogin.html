@@ -1,13 +1,23 @@
-{% extends 'base.html' %}
-{% block content %}
+{% extends 'base1.html' %}
+{% block body %}
 {% if form.errors %}
 <p class="error"> Invalid Username or Password </p>
 {% endif %}
-<form action="/employee_dashboard/authorize/" method = "post">{% csrf_token %}
-<label for="username">user name : </label>
-<input type="text" name = "username" value = "" id="username"><br>
-<label for="password"> Password:</label>
-<input type="password" name="password" value="" id="password"><br>
-<input type="submit" value="login"/>
+<form action="/employee_dashboard/authorize/" method="post">{% csrf_token %}
+    <div class="tab">
+        <table border="2">
+            <tr>
+                <td><label for="username">Username : </label></td>
+                <td><input type="text" name="username" value="" id="username"></td>
+            </tr>
+            <tr>
+                <td><label for="password"> Password:</label></td>
+                <td><input type="password" name="password" value="" id="password"></td>
+            </tr>
+            <tr>
+                <td colspan="2" align="center"><input type="submit" value="login"/></td>
+            </tr>
+        </table>
+    </div>
 </form>
-{% endblock %}
+{% endblock body%}

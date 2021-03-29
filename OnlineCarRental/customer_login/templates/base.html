@@ -1,15 +1,4 @@
-<!--<!DOCTYPE html>-->
-<!--<html lang="en">-->
-<!--<head>-->
-<!--    <meta charset="UTF-8">-->
-<!--    <title>Customer Registration</title>-->
-<!--</head>-->
-<!--<body>-->
-<!--<h1>Customer entry</h1>-->
-<!--{% block content %}-->
-<!--{% endblock %}-->
-<!--</body>-->
-<!--</html>-->
+
 <!doctype html>
 <html lang="en">
 <head>
@@ -37,14 +26,7 @@
                 <li class="nav-item">
                     <a class="nav-link active" aria-current="page" href="/">Home</a>
                 </li>
-                <li class="nav-item">
-                    <a class="nav-link" href="/dashboard">Dashboard</a>
-                </li>
                 <li class="nav-item dropdown">
-                    <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button"
-                       data-bs-toggle="dropdown" aria-expanded="false">
-                        Login
-                    </a>
                     <ul class="dropdown-menu" aria-labelledby="navbarDropdown">
                         <li><a class="dropdown-item" href="/customer_login/customerloginpage/">Customer-Login</a></li>
                         <li><a class="dropdown-item" href="/employee_dashboard/login/">Employee-Login</a></li>
@@ -60,7 +42,14 @@
                 <li class="nav-item">
                     <a class="nav-link" href="/contact">Contact Us</a>
                 </li>
+                <li class="d-flex">
+                    <a class="nav-link" aria-current="page" href="/signout">Signout</a>
+                </li>
             </ul>
+<!--            <form class="d-flex">-->
+<!--                <input class="form-control me-2" type="search" placeholder="Search" aria-label="Search">-->
+<!--                <button class="btn btn-outline-success" type="submit">Search</button>-->
+<!--            </form>-->
         </div>
     </div>
 </nav>
