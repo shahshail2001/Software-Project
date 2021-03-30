@@ -47,8 +47,29 @@ def authorize(request):
 
 
 def update_car(request):
-    car = Car.objects.all()
+    car = Car.objects.filter(car_availability=True)
     return render(request, 'updatecar.html', {'car': car})
+
+
+def carupdated(request):
+    carid = request.POST.get('carid', '')
+    carname = request.POST.get('carcompany', '')
+    carclasstype = request.POST.get('carclass', '')
+    price = request.POST.get('price', '0')
+    carnumber = request.POST.get('carnumber', '')
+    fueltype = request.POST.get('fuel', '')
+    cardescription = request.POST.get('description', '')
+    caravailability = request.POST.get('availability', 'True')
+    c = Car.objects.get(car_id=carid)
+    c.car_company = carname
+    c.car_class_type = carclasstype
+    c.price_per_day = price
+    c.car_number = carnumber
+    c.fuel_type = fueltype
+    c.car_description = cardescription
+    c.car_availability = caravailability
+    c.save()
+    return render(request, 'employeehomepage.html')
 
 
 def addcarinfo(request):

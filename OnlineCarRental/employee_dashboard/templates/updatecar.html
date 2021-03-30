@@ -12,8 +12,9 @@
 {% if car %}
 
     {% for car in car %}
-<form method="post" action="">
-    <table>
+<form method="post" action="/employee_dashboard/carupdated/">{% csrf_token %}
+    <table border="2">
+        <input type="hidden" name="carid" value="{{car.car_id}}">
         <tr>
             <td>CAR COMPANY</td>
             <td><input type="text" name="carcompany" value="{{ car.car_company }}"></td>
@@ -46,14 +47,11 @@
             </td>
         </tr>
         <tr>
-            <td><input type="submit" name="submit" value="Update"></td>
+            <td colspan="2" align="center"><input type="submit" name="submit" value="Update"></td>
         </tr>
     </table>
-    CarId:
-    <input type="number" name="c_id">
-    <br>
-    <input type="submit" value="Submit">
 </form>
+<br><br>
     {% endfor %}
 {% else %}
 <h3>No Cars are Registered right now</h3>

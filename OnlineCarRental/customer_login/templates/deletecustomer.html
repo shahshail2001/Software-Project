@@ -18,13 +18,14 @@ body {
 </head>
 
 <form action="/customer_login/delete_customer/" method="post">{% csrf_token %}
-    <label for="customerid">Employeeid:</label>
-    <input type="number" name="customerid" value="" id="customerid">
-    <br>
-    <label for="customerusername">Employee Username:</label>
-    <input type="text" name="customername" value="" id="customerusername">
-    <br>
-    <input type="submit" value="Submit">
+    <table border="2">
+        <th>Are You Sure You want to delete Your account?</th>
+        <tr>
+            <td><input type="submit" name="submit" value="YES">&nbsp;
+                <input type="submit" name="submit" value="NO">
+            </td>
+        </tr>
+    </table>
 </form>
 
 
