@@ -72,6 +72,10 @@ def adminsignup(request):
         return render(request, 'unsuccessfulllogin.html')
 
 
+def adminhomepage(request):
+    return render(request, 'adminhome.html')
+
+
 def deleteemployee(request):
     employeeid = request.POST.get('employeeid', '')
     employeename = request.POST.get('employeename', '')

@@ -11,6 +11,13 @@ from Car_Booking.models import Booking
 
 # Create your views here.
 def BookCar(request):
+    today = date.today()
+    d1 = today.strftime("%Y-%m-%d")
+    b = Booking.objects.filter(carreturndate__lt=d1)
+    for i in b:
+        c = Car.objects.get(car_id=i.carid)
+        c.car_availability = True
+        c.save()
     cars = Car.objects.filter(car_availability=True)
     return render(request, 'book_car.html', {'cars': cars})
 
@@ -19,6 +26,24 @@ def booking(request):
     carid = request.POST.get('carid')
     cars = Car.objects.get(car_id=carid)
     return render(request, 'carbooking.html', {'cars': cars})
+
+
+def history(request):
+    u = request.user.username
+    c = Customer.objects.get(customer_username=u)
+    today = date.today()
+    d1 = today.strftime("%Y-%m-%d")
+    bh = Booking.objects.filter(customerid=c.customer_id, carreturndate__lt=d1)
+    return render(request, 'history.html', {'history': bh})
+
+
+def current(request):
+    u = request.user.username
+    c = Customer.objects.get(customer_username=u)
+    today = date.today()
+    d1 = today.strftime("%Y-%m-%d")
+    bh = Booking.objects.filter(customerid=c.customer_id, carreturndate__gte=d1)
+    return render(request, 'currentbooking.html', {'current': bh})
 
 
 def book(request):

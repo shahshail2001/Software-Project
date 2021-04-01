@@ -1,3 +1,6 @@
+{%extends 'base4.html'%}
+{%block title%}BOOK CAR {%endblock title%}
+{% block body%}
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -6,6 +9,7 @@
 </head>
 <body>
 <h1 align="center">Enter Your Booking Details</h1>
+<p align="center"><a href='/Car_Booking/BookCar' class='btn btn-outline-dark'>Go Back</a></p>
 
 <table border="2" align="center">
     <th colspan="2">Your SELECTED CAR</th>
@@ -47,3 +51,4 @@
 
 </body>
 </html>
+{% endblock body%}

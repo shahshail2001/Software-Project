@@ -7,6 +7,7 @@ urlpatterns = [
     url('adminsignup/', views.adminsignup),
     url('getemployee/', views.getemployee),
     url('success/', views.success),
+    url('adminhomepage/', views.adminhomepage),
     url('deleteemployeeinfo/', views.deleteemployeeinfo),
     url('deleteemployee/', views.deleteemployee),
     url('employeedeleteunsuccessful/', views.employeedeleteunsuccessful),

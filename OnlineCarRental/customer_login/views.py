@@ -34,9 +34,44 @@ def customerlogin(request):
     return HttpResponse("Invalid Credentials")
 
 
+def update(request):
+    c = request.user.username
+    customer = Customer.objects.get(customer_username=c)
+    return render(request, 'update.html', {'customer': customer})
+
+
+def updatedetails(request):
+    customerid = request.POST.get('cus_id', '')
+    customerusername = request.POST.get('username', '')
+    customername = request.POST.get('name', '')
+    customeremail = request.POST.get('email', '')
+    customerphone = request.POST.get('phoneno', '')
+    customeraadhar = request.POST.get('aadhar', '')
+    customeraddress = request.POST.get('address', '')
+    customerdob = request.POST.get('dateofbirth', '')
+    c = Customer.objects.get(customer_id=customerid)
+    user = User.objects.get(username=c.customer_username)
+    c.customer_username = customerusername
+    c.customer_name = customername
+    c.customer_email = customeremail
+    c.customer_phone_no = customerphone
+    c.customer_aadhar_no = customeraadhar
+    c.customer_address = customeraddress
+    c.customer_dob = customerdob
+    c.save()
+    user.username = customerusername
+    user.email = customeremail
+    user.save()
+    return render(request, 'customerhomepage.html')
+
+
 def signout(request):
     auth.logout(request)
     return render(request, 'addcustomerinfo.html')
+
+
+def home_page(request):
+    return render(request, 'customerhomepage.html')
 
 
 def customerinfo(request):
@@ -67,6 +102,8 @@ def delete_customer(request):
     if val == "YES":
         u = request.user.username
         c = Customer.objects.get(customer_username=u)
+        user = User.objects.get(username=c.customer_username)
+        user.delete()
         c.delete()
         return render(request, 'deletecustomerrecord.html')
     elif val == "NO":

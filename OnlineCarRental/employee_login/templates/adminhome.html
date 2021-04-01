@@ -1,3 +1,7 @@
+{%extends 'base4.html'%} {% load static %}
+{%block title%}Home {%endblock title%}
+
+{% block body%}
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -5,11 +9,14 @@
     <title>ADMIN HOME PAGE</title>
 </head>
 <body>
-<h1>Welcome to admin home page</h1>
+<h1>Welcome ADMIN</h1>
 <a href="/employee_login/getemployee/">Employee Registration</a>
 <br><br>
 <a href="/employee_login/deleteemployeeinfo/">Employee Remove</a>
 <br><br>
 <a href="/employee_dashboard/getcarinfo/">ADD Car</a>
+<br><br>
+<a href=""></a>
 </body>
 </html>
+{% endblock body%}
