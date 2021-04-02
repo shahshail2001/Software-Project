@@ -3,13 +3,26 @@
 {%block title%}Home {%endblock title%}
 
 {% block body%}
-<head>
-.book{
-			
-		align
-		}
+<!--<head>-->
+<!--    <style>-->
+<!--    a{-->
+<!--    width: 100%;-->
+<!--    background-color: #4CAF50;-->
+<!--    color: white;-->
+<!--    padding: 14px 20px;-->
+<!--    margin: 10px 0;-->
+<!--    margin-bottom: 20px;-->
+<!--    border: none;-->
+<!--    border-radius: 4px;-->
+<!--    cursor: pointer;-->
+<!--    text-decoration: none;-->
+<!--    text-align: center;-->
+<!--    background-color: #45a049;-->
+<!--    }-->
 
-</head>
+<!--    </style>-->
+<!--</head>-->
+<body>
 <div class="container-fluid px-0">
     <div id="carouselExampleControls" class="carousel slide" data-bs-ride="carousel">
         <div class="carousel-inner">
@@ -35,10 +48,11 @@
         </button>
     </div>
 </div>
-<div class="book">
+<a href='/Car_Booking/BookCar/' class='btn btn-outline-dark'>Book Car</a>
+&nbsp;
+<a href='/Car_Booking/current/' class='btn btn-outline-dark'>Current Booking</a>
+&nbsp;
+<a href='/Car_Booking/history/' class='btn btn-outline-dark'>Booking History</a>
 
-<a href='/Car_Booking/booking/'  class='btn btn-outline-dark'>Book Car</a>
-
-</div>
-
+</body>
 {% endblock body%}

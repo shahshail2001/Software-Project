@@ -25,7 +25,14 @@ def getcarinfo(request):
 def deleteinfo(request):
     c = {}
     c.update(csrf(request))
-    return render(request, 'deleterecord.html')
+    car = Car.objects.filter(car_availability=True)
+    return render(request, 'deleterecord.html', {'car': car})
+
+
+def back_to_homepage(request):
+    c = {}
+    c.update(csrf(request))
+    return render(request, 'employeehomepage.html', {"username": request.user.username})
 
 
 def authorize(request):
@@ -34,9 +41,35 @@ def authorize(request):
     user = auth.authenticate(username=username, password=password)
     if user is not None:
         auth.login(request, user)
-        return render(request, 'employeehomepage.html')
+        return render(request, 'employeehomepage.html', {"username": request.user.username})
     else:
         return render(request, 'invalid.html')
+
+
+def update_car(request):
+    car = Car.objects.filter(car_availability=True)
+    return render(request, 'updatecar.html', {'car': car})
+
+
+def carupdated(request):
+    carid = request.POST.get('carid', '')
+    carname = request.POST.get('carcompany', '')
+    carclasstype = request.POST.get('carclass', '')
+    price = request.POST.get('price', '0')
+    carnumber = request.POST.get('carnumber', '')
+    fueltype = request.POST.get('fuel', '')
+    cardescription = request.POST.get('description', '')
+    caravailability = request.POST.get('availability', 'True')
+    c = Car.objects.get(car_id=carid)
+    c.car_company = carname
+    c.car_class_type = carclasstype
+    c.price_per_day = price
+    c.car_number = carnumber
+    c.fuel_type = fueltype
+    c.car_description = cardescription
+    c.car_availability = caravailability
+    c.save()
+    return render(request, 'employeehomepage.html')
 
 
 def addcarinfo(request):
@@ -56,6 +89,11 @@ def addcarinfo(request):
 
 def addsuccess(request):
     return render(request, 'addrecord.html')
+
+
+def logout(request):
+    auth.logout(request)
+    return render(request, 'addcustomerinfo.html')
 
 
 def getcars(request):

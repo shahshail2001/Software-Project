@@ -1,2 +1,14 @@
+{% extends 'base3.html' %}
+{% block body %}
+{% if user.is_authenticated %}
+
 <h2> Car record deleted successfully </h2>
+<br>
+<!--<p> Click Here to go back to the home page -> <a href="/employeehomepage/back_to_homepage/">Home Page</a></p>-->
+<br>
 <p> Click <a href="/employee_dashboard/deleteinfo/">here</a> to delete another record. </p>
+{% else %}
+<h1>You Need To First Login To View This Page</h1>
+Click <a href="/customer_login/getcustomer/">HERE</a> to go back to the login page
+{% endif %}
+{% endblock body%}

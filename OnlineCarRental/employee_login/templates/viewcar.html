@@ -1,0 +1,55 @@
+{% extends 'base5.html' %}
+{% block body %}
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Car Info</title>
+</head>
+<body>
+{% if user.is_authenticated %}
+
+
+    {% if cars %}
+
+    {% for car in cars %}
+    <table border="2">
+        <tr>
+            <td>CAR COMPANY</td>
+            <td>{{ car.car_company }}</td>
+        </tr>
+        <tr>
+            <td>Car Class</td>
+            <td>{{ car.car_class_type }}</td>
+        </tr>
+        <tr>
+            <td>Price</td>
+            <td>{{ car.price_per_day }}</td>
+        </tr>
+        <tr>
+            <td>Car Number</td>
+            <td>{{ car.car_number }}</td>
+        </tr>
+        <tr>
+            <td>Car Fuel</td>
+            <td>{{ car.fuel_type }}</td>
+        </tr>
+        <tr>
+            <td>Car description</td>
+            <td>{{ car.car_description }}</td>
+        </tr>
+    </table>
+<br>
+    {% endfor %}
+    {% else %}
+<h3>No Cars are Registered right now</h3>
+    {% endif %}
+
+{% else %}
+<h1>You Need To First Login To View This Page</h1>
+Click <a href="/customer_login/getcustomer/">HERE</a> to go back to the login page
+{% endif %}
+{% endblock body%}
+</body>
+</html>

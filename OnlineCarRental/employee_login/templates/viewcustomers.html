@@ -1,3 +1,7 @@
+{%extends 'base5.html'%} {% load static %}
+{%block title%}Home {%endblock title%}
+
+{% block body%}
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -5,11 +9,49 @@
     <title>Customer List</title>
 </head>
 <body>
-    {% if customer %}
-    <p>The registered customers are:</p><br>
-    {% for c in customer %}
-    <li>Customer id: {{ c.customer_id }}</li>
-    {% endfor %}
-    {% endif %}
+
+{% if customer %}
+<h1>The registered customers are:</h1><br>
+{% for c in customer %}
+<!--    <li>Customer id: {{ c.customer_id }}</li>-->
+<table border="2">
+    <tr>
+        <td>Customer ID</td>
+        <td>{{ c.customer_id }}</td>
+    </tr>
+    <tr>
+        <td>Customer Username</td>
+        <td>{{ c.customer_username }}</td>
+    </tr>
+    <tr>
+        <td>Customer Name</td>
+        <td>{{ c.customer_name }}</td>
+    </tr>
+    <tr>
+        <td>Customer EmailID</td>
+        <td>{{ c.customer_email }}</td>
+    </tr>
+    <tr>
+        <td>Customer Contact Number</td>
+        <td>{{ c.customer_phone_no }}</td>
+    </tr>
+    <tr>
+        <td>Customer Aadhar Number</td>
+        <td>{{ c.customer_aadhar_no }}</td>
+    </tr>
+    <tr>
+        <td>Customer Address</td>
+        <td>{{ c.customer_address }}</td>
+    </tr>
+    <tr>
+        <td>Customer Date of Birth</td>
+        <td>{{ c.customer_dob }}</td>
+    </tr>
+</table>
+{% endfor %}
+{% else %}
+<h1>No customers are registered yet.</h1>
+{% endif %}
 </body>
 </html>
+{% endblock body%}

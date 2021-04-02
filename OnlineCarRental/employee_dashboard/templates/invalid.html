@@ -1,3 +1,7 @@
+{% extends 'base1.html' %}
+{% block body %}
+{% if user.is_authenticated %}
+
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -5,6 +9,12 @@
     <title>Invalid</title>
 </head>
 <body>
-<h1>Invalid</h1>
+<h1>Invalid Credentials</h1>
 </body>
 </html>
+{% else %}
+<h1>You Need To First Login To View This Page</h1>
+Click <a href="/customer_login/getcustomer/">HERE</a> to go back to the login page
+{% endif %}
+{% endblock body%}
+{% endblock body%}

@@ -1,18 +1,13 @@
-{% extends 'base1.html' %}
-
-{% block title %}BOOK CAR {% endblock title %}
-{% block body %}
+{%extends 'base4.html'%}
+{%block title%}BOOK CAR {%endblock title%}
+{% block body%}
+<!DOCTYPE html>
+<html lang="en">
 <head>
-body {
-  background-image: url('/static/img/12.jpg');
-  background-repeat: no-repeat;
-  background-attachment: fixed;
-  background-size: 100% 100%;
-
-}
+    <meta charset="UTF-8">
+    <title>BOOK CAR</title>
 </head>
-
-
+<body>
 {% if cars %}
 <h3>The cars available for booking are:</h3>
 {% for c in cars %}
@@ -46,6 +41,6 @@ body {
 {% else %}
 <h3>No Car Bookings Available right now</h3>
 {% endif %}
-
-
-{% endblock body %}
+</body>
+</html>
+{% endblock body%}

@@ -5,6 +5,10 @@ from . import views
 urlpatterns = [
     url('getcustomer/', views.getcustomer),
     url('customerinfo/', views.customerinfo),
+    url('signout/', views.signout),
+    url('home_page/', views.home_page),
+    url('update/', views.update),
+    url('updatedetails/', views.updatedetails),
     url('registersuccess/', views.registersuccess),
     url('deletecustomer/', views.deletecustomer),
     url('delete_customer/', views.delete_customer),

@@ -1,0 +1,56 @@
+{%extends 'base.html'%} {% load static %}
+{%block title%}UPDATE DETAILS {%endblock title%}
+
+{% block body%}
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>UPDATE DETAILS</title>
+</head>
+<body>
+
+<h1>Your Details are:</h1><br>
+<form action="/customer_login/updatedetails/" method="post">{% csrf_token %}
+    <input type="hidden" name="cus_id" value="{{ customer.customer_id }}">
+    <table border="2">
+        <tr>
+            <td>Your ID</td>
+            <td>{{ customer.customer_id }}</td>
+        </tr>
+        <tr>
+            <td>Your Username</td>
+            <td><input type="text" name="username" value="{{ customer.customer_username }}"></td>
+        </tr>
+        <tr>
+            <td>Your Name</td>
+            <td><input type="text" name="name" value="{{ customer.customer_name }}"></td>
+        </tr>
+        <tr>
+            <td>Your EmailID</td>
+            <td><input type="email" name="email" value="{{ customer.customer_email }}"></td>
+        </tr>
+        <tr>
+            <td>Your Contact Number</td>
+            <td><input type="text" name="phoneno" value="{{ customer.customer_phone_no }}"></td>
+        </tr>
+        <tr>
+            <td>Your Aadhar Number</td>
+            <td><input type="text" name="aadhar" value="{{ customer.customer_aadhar_no }}"></td>
+        </tr>
+        <tr>
+            <td>Your Address</td>
+            <td><input type="text" name="address" value="{{ customer.customer_address }}"></td>
+        </tr>
+        <tr>
+            <td>Your Date of Birth</td>
+            <td><input type="date" name="dateofbirth" value="{{ customer.customer_dob|date:'Y-m-d'}}"></td>
+        </tr>
+        <tr>
+            <td colspan="2" align="center"><input type="submit" name="submit" value="UPDATE"></td>
+        </tr>
+    </table>
+</form>
+</body>
+</html>
+{% endblock body%}

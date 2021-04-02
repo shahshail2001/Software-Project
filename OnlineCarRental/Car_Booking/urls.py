@@ -6,6 +6,8 @@ urlpatterns = [
     url('BookCar', views.BookCar),
     url('booking', views.booking),
     url('book', views.book),
-    url('donebooking', views.donebooking),
-    url('b', views.b)
+    # url('donebooking', views.donebooking),
+    url('b', views.b),
+    url('history/', views.history),
+    url('current/', views.current),
 ]

@@ -1,15 +1,4 @@
-<!--<!DOCTYPE html>-->
-<!--<html lang="en">-->
-<!--<head>-->
-<!--    <meta charset="UTF-8">-->
-<!--    <title>Customer Registration</title>-->
-<!--</head>-->
-<!--<body>-->
-<!--<h1>Customer entry</h1>-->
-<!--{% block content %}-->
-<!--{% endblock %}-->
-<!--</body>-->
-<!--</html>-->
+
 <!doctype html>
 <html lang="en">
 <head>
@@ -35,29 +24,38 @@
         <div class="collapse navbar-collapse" id="navbarSupportedContent">
             <ul class="navbar-nav me-auto mb-2 mb-lg-0">
                 <li class="nav-item">
-                    <a class="nav-link active" aria-current="page" href="/">Home</a>
+                    <a class="nav-link active" aria-current="page" href="/customer_login/home_page/">Home</a>
                 </li>
-                <li class="nav-item dropdown">
-                    <ul class="dropdown-menu" aria-labelledby="navbarDropdown">
-                        <li><a class="dropdown-item" href="/customer_login/customerloginpage/">Customer-Login</a></li>
-                        <li><a class="dropdown-item" href="/employee_dashboard/login/">Employee-Login</a></li>
-                        <li>
-                            <hr class="dropdown-divider">
-                        </li>
-                        <li><a class="dropdown-item" href="/employee_login/adminlogin/">Admin-Login</a></li>
-                    </ul>
-                </li>
+<!--                <li class="nav-item dropdown">-->
+<!--                    <ul class="dropdown-menu" aria-labelledby="navbarDropdown">-->
+<!--                        <li><a class="dropdown-item" href="/customer_login/customerloginpage/">Customer-Login</a></li>-->
+<!--                        <li><a class="dropdown-item" href="/employee_dashboard/login/">Employee-Login</a></li>-->
+<!--                        <li>-->
+<!--                            <hr class="dropdown-divider">-->
+<!--                        </li>-->
+<!--                        <li><a class="dropdown-item" href="/employee_login/adminlogin/">Admin-Login</a></li>-->
+<!--                    </ul>-->
+<!--                </li>-->
                 <li class="nav-item">
                     <a class="nav-link" href="/about">About Us</a>
                 </li>
                 <li class="nav-item">
                     <a class="nav-link" href="/contact">Contact Us</a>
                 </li>
+                 <li class="d-flex">
+                    <a class="nav-link" aria-current="page" href="/customer_login/update/">Update Account</a>
+                </li>
+                <li class="d-flex">
+                    <a class="nav-link" aria-current="page" href="/customer_login/deletecustomer/">Delete Account</a>
+                </li>
+                <li class="d-flex">
+                    <a class="nav-link" aria-current="page" href="/customer_login/signout">Signout</a>
+                </li>
             </ul>
-            <form class="d-flex">
-                <input class="form-control me-2" type="search" placeholder="Search" aria-label="Search">
-                <button class="btn btn-outline-success" type="submit">Search</button>
-            </form>
+<!--            <form class="d-flex">-->
+<!--                <input class="form-control me-2" type="search" placeholder="Search" aria-label="Search">-->
+<!--                <button class="btn btn-outline-success" type="submit">Search</button>-->
+<!--            </form>-->
         </div>
     </div>
 </nav>

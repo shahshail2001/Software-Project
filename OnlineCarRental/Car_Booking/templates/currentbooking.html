@@ -1,0 +1,60 @@
+{%extends 'base4.html'%}
+{%block title%}BOOKING HISTORY {%endblock title%}
+{% block body%}
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+    {% if current %}
+    {% for h in current %}
+        <table border="2">
+            <tr>
+                <td>Booking Id</td>
+                <td>{{ h.booking_id }}</td>
+            </tr>
+            <tr>
+                <td>Car Id</td>
+                <td>{{ h.carid }}</td>
+            </tr>
+            <tr>
+                <td>Car name</td>
+                <td>{{ h.carname }}</td>
+            </tr>
+            <tr>
+                <td>Car number</td>
+                <td>{{ h.carnumber }}</td>
+            </tr>
+            <tr>
+                <td>Booking Date</td>
+                <td>{{ h.bookingdate }}</td>
+            </tr>
+            <tr>
+                <td>Car Taken Date</td>
+                <td>{{ h.carbookdate }}</td>
+            </tr>
+
+            <tr>
+                <td>Car Return Date</td>
+                <td>{{ h.carreturndate }}</td>
+            </tr>
+
+            <tr>
+                <td>Total Days</td>
+                <td>{{ h.total_no_of_days }}</td>
+            </tr>
+            <tr>
+                <td>Total Payment</td>
+                <td>{{ h.totalpayment }}</td>
+            </tr>
+        </table>
+    <br>
+    {% endfor %}
+    {% else %}
+    <h3>You Have No Current Bookings Right Now</h3>
+    {% endif %}
+</body>
+</html>
+{% endblock body%}

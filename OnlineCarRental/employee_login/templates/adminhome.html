@@ -1,3 +1,7 @@
+{%extends 'base5.html'%} {% load static %}
+{%block title%}Home {%endblock title%}
+
+{% block body%}
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -5,11 +9,19 @@
     <title>ADMIN HOME PAGE</title>
 </head>
 <body>
-<h1>Welcome to admin home page</h1>
-<a href="/employee_login/getemployee/">Employee Registration</a>
+<h1>Welcome {{username}}</h1>
+Click Here to View all Employees -><a href="/employee_login/getemployeesinfo/">Employee Details</a>
 <br><br>
-<a href="/employee_login/deleteemployeeinfo/">Employee Remove</a>
+Click Here to add an Employee -><a href="/employee_login/getemployee/">Employee Registration</a>
 <br><br>
-<a href="/employee_dashboard/getcarinfo/">ADD Car</a>
+Click here to remove Employee -><a href="/employee_login/deleteemployeeinfo/">Employee Remove</a>
+<br><br>
+Click here to Update Employee -><a href="/employee_login/updateemployee/">Employee Update</a>
+<br><br>
+Click Here to view the Cars -><a href="/employee_login/viewcars/">View Cars</a>
+<br><br>
+Click Here to view Your Customers -><a href="/employee_login/viewcustomer/">View Customers</a>
+
 </body>
 </html>
+{% endblock body%}

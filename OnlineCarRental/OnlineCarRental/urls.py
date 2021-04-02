@@ -18,9 +18,11 @@ from django.urls import path, include
 from django.conf.urls import url
 from django.conf import settings
 from django.conf.urls.static import static
+from customer_login.views import getcustomer
 
 urlpatterns = [
                   url('admin/', admin.site.urls),
+                  path('', getcustomer),
                   url('loginmodule', include('loginmodule.urls')),
                   url('employee_dashboard', include('employee_dashboard.urls')),
                   url('employee_login', include('employee_login.urls')),
