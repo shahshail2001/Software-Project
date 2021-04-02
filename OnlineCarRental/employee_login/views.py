@@ -6,6 +6,9 @@ from django.template.context_processors import csrf
 from employee_login.models import Employee
 from django.contrib.auth.models import User
 from customer_login.models import Customer
+from django.contrib import auth
+from employee_dashboard.models import Car
+from customer_login.models import Customer
 
 
 def getemployee(request):
@@ -64,16 +67,16 @@ def success(request):
 def adminsignup(request):
     adminusername = request.POST.get('username', '')
     adminpassword = request.POST.get('password', '')
-    if adminusername == "shail165" and adminpassword == "shail123":
-        return render(request, 'adminhome.html')
-    if adminusername == "harsh" and adminpassword == "harsh10":
-        return render(request, 'adminhome.html')
+    user = auth.authenticate(username=adminusername, password=adminpassword)
+    if user is not None:
+        auth.login(request, user)
+        return render(request, 'adminhome.html', {"username": request.user.username})
     else:
-        return render(request, 'unsuccessfulllogin.html')
+        return render(request, 'invalid.html')
 
 
-def adminhomepage(request):
-    return render(request, 'adminhome.html')
+def adminhome(request):
+    return render(request, 'adminhome.html', {"username": request.user.username})
 
 
 def deleteemployee(request):
@@ -95,6 +98,52 @@ def employeedeleteunsuccessful(request):
 def getemployeesinfo(request):
     employees = Employee.objects.all()
     return render(request, 'viewemployee.html', {'employees': employees})
+
+
+def updateemployee(request):
+    employee = Employee.objects.all()
+    return render(request, 'update_employee.html', {'employee': employee})
+
+
+def updated(request):
+    employeeid = request.POST.get('employeeid', '')
+    employeeusername = request.POST.get('employeeusername', '')
+    employeename = request.POST.get('employeename', '')
+    employeemail = request.POST.get('employeeemail', '')
+    employeephone = request.POST.get('employeephone', '')
+    employeeadhar = request.POST.get('employeeaadhar', '')
+    employeeaddress = request.POST.get('employeeaddress', '')
+    employeedob = request.POST.get('employeedob', '')
+    employeesalary = request.POST.get('employeesalary', '')
+    employeedesignation = request.POST.get('employeedesignation', '')
+    employeeavailability = request.POST.get('availability', 'True')
+    e = Employee.objects.get(employee_id=employeeid)
+    user = User.objects.get(username=e.employee_username)
+    e.employee_username = employeeusername
+    e.employee_name = employeename
+    e.employee_email = employeemail
+    e.employee_phone_no = employeephone
+    e.employee_aadhar_no = employeeadhar
+    e.employee_address = employeeaddress
+    e.employee_dob = employeedob
+    e.employee_salary = employeesalary
+    e.employee_designation = employeedesignation
+    e.check_availability = employeeavailability
+    e.save()
+    user.username = employeeusername
+    user.email = employeemail
+    user.save()
+    return render(request, 'adminhome.html', {"username": request.user.username})
+
+
+def viewcars(request):
+    cars = Car.objects.all()
+    return render(request, 'viewcar.html', {'cars': cars})
+
+
+def viewcustomer(request):
+    customer = Customer.objects.all()
+    return render(request, 'viewcustomers.html', {'customer': customer})
 
 
 class EmployeeListView(generic.ListView):
